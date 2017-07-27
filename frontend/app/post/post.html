@@ -1,0 +1,141 @@
+<div ng-controller="postCtrl as vm">
+    <div class="col-sm-8">
+        <!--a place to add a post  -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form name="outerForm" class="tab-form-demo">
+                    <uib-tabset active="activeForm">
+                        <uib-tab index="0" heading="Post">
+                            <ng-form name="nestedForm">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="4" required placeholder="share your life" ng-model="vm.sendPost"></textarea>
+                                    <hr>
+                                    <button type="button" class="btn btn-info" ng-click="vm.cancel()">Cancel</button> &nbsp;&nbsp;&nbsp;
+                                    <button type="button" class="btn btn-info" ng-click="vm.addPost()" id="post">Post</button>
+                                </div>
+                            </ng-form>
+                        </uib-tab>
+                        <!--Add picture and post-->
+                        <uib-tab index="1" heading="AddPicture">
+                            <input type="file" name="pic" accept="image/*" onchange="angular.element(this).scope().vm.setFile(this)">
+                            <img src=" " class="img-rounded" id="post1" width="200" height="200">
+                            <textarea class="form-control" rows="2" required placeholder="share your life" ng-model="vm.sendPostPlus">
+                            </textarea>
+                            <hr>
+                            <button type="button" class="btn btn-info" ng-click="vm.cancelPlus()">Cancel</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-info" ng-click="vm.addPostPlus()">Post</button>
+                        </uib-tab>
+                    </uib-tabset>
+                </form>
+            </div>
+            <div class="panel-footer">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="type">
+            <h1>This is where</h1>
+            <p>you can extend your network.</p>
+        </div>
+    </div>
+    <section>
+        <!--search bar -->
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="form-group">
+                    <label for="search">Search<a><span class="glyphicon glyphicon-search"></span></a></label>
+                    <input type="text" class="form-control" id="search" placeholder="search posts" ng-model="vm.searchKeyword">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <!--used to repeat showing posts -->
+            <div class="col-sm-10">
+                <div ng-repeat="x in vm.posts | filter: vm.searchKeyword">
+                    <div class="panel-group">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                <div ng-hide="vm.isShow(x)">
+                                    <img src="{{x.img}}" class="img-rounded" alt="Cinque Terre" width="600" height="400">
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-2 text-center">
+                                        <img src="{{vm.author[x.author]}}" class="img-circle" height="50" width="50" alt="Avatar">
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <h4><span id="author">{{x.author}}</span> <small>{{x.date}}</small></h4>
+                                    </div>
+                                    <div ng-hide="vm.isEditPost(x.author)">
+                                        <div class="col-sm-1">
+                                            <span ng-click="vm.updatePost(x.id)" class="caret" data-toggle="modal" data-target="#myModalA"></span>
+                                        </div>
+                                    </div>
+                                    <!--use modal when need to update a post -->
+                                    <div class="modal fade" id="myModalA" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Edit Posts</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <textarea rows="4" cols="78" ng-model="vm.body">{{vm.body}}</textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-warning" ng-click="vm.savePost()" data-dismiss="modal">Save</button>
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <p>{{x.body}}</p>
+                            </div>
+                            <!--used to repeat showing comment -->
+                            <div class="panel-footer">
+                                <a><span class="glyphicon glyphicon-comment" ng-click="isShowComment = !isShowComment"></span>
+			                    </a><span>Comment</span>
+                                <div ng-show="isShowComment">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="2" required placeholder="Leave a comment" ng-model="vm.newComment"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-success" ng-click="vm.addComment(x.id)">Comment</button> &nbsp;&nbsp;&nbsp;
+                                        <button type="submit" class="btn btn-success" ng-click="vm.delete()">Delete</button>
+                                        <hr>
+                                        <div class="row" ng-repeat="comment in x.comments">
+                                            <div class="col-sm-2">
+                                                <img src="{{vm.comments[comment.author]}}" class="img-circle" alt="Clique Terre" width="50" height="50">
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div ng-hide="isCover">
+                                                    <h4>{{comment.author}} <small>{{comment.date}}</small></h4>
+                                                    <p>{{comment.body}}</p>
+                                                </div>
+                                                <div ng-show="isCover">
+                                                    <textarea rows="4" cols="60" ng-model="vm.commentBody">{{vm.commentBody}}</textarea>
+                                                    <button type="button" class="btn btn-warning" ng-click="vm.saveComment(isCover=!isCover)">Save</button>
+                                                    <button type="button" class="btn btn-warning" ng-click="isCover=!isCover">Delete</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <div ng-hide="vm.isEditPost(comment.author)">
+                                                    <span class="glyphicon glyphicon-pencil" ng-click="vm.updateComment(x.id,comment.commentId,isCover=!isCover)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

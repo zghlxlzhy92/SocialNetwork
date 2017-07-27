@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/post/postCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">app/post/</a> postCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.35% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>50/92</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.9% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.35% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>50/92</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">;(function(){
+	angular.module('myApp')
+  .controller('postCtrl',postCtrl)
+&nbsp;
+  postCtrl.$inject=['api','UserService']
+  //this function is used as controller function 
+  function postCtrl(api,UserService){
+    vm=this;
+    vm.posts=[];
+    vm.username=UserService.username;
+    vm.sendPost='';
+    vm.sendPostPlus='';
+    vm.addPost=addPost;
+    vm.addPostPlus=addPostPlus;
+    vm.updatePost=updatePost;
+    vm.savePost=savePost;
+    vm.isEdit=true;
+    vm._isEdit=true;
+    vm.isShow=true;
+    vm.addComment=addComment;
+    vm.updateComment=updateComment;
+    vm.saveComment=saveComment;
+    vm.loadPosts=loadPosts;//convenient to test
+    vm.setFile=setFile;
+    var _postImage;
+    loadPosts();//when load the page, posts will show
+    var _postId ; // used as transmit postId parameter
+    var _commentId;
+  //this function used as loadPosts
+  function loadPosts(){
+    vm.posts.length=0;
+    api.getPosts().$promise.then(function(result){
+     result.posts.forEach(function(post){
+     vm.posts.push(post);
+     })
+   })
+  }
+ //this function is used as add a new post
+ function addPost(){
+   api.addPost({body:vm.sendPost}).$promise.
+   then(function(result)
+   { //console.log(result.posts[0])
+     loadPosts();//loadpost(),so when change the page will show
+     //vm.posts.shift(result.posts[0]);//---------- 
+     vm.sendPost='';
+   })
+  }
+<span class="fstat-no" title="function not covered" >  function addPostPlus(){</span>
+<span class="cstat-no" title="statement not covered" >     api.addPost({body:vm.sendPostPlus,img:_postImage}).$promise.</span>
+     then(<span class="fstat-no" title="function not covered" >function(result){</span>
+<span class="cstat-no" title="statement not covered" >         loadPosts();</span>
+<span class="cstat-no" title="statement not covered" >         vm.sendPostPlus='';</span>
+<span class="cstat-no" title="statement not covered" >         var preview = document.getElementById("post");</span>
+<span class="cstat-no" title="statement not covered" >         preview.src=" "</span>
+     })
+  }
+//this function is used as check whether the user has the authority to change a post
+//@postId: the id of a specific post
+<span class="fstat-no" title="function not covered" >function updatePost(postId){</span>
+<span class="cstat-no" title="statement not covered" >   _postId=postId;</span>
+<span class="cstat-no" title="statement not covered" >   var postuser;</span>
+<span class="cstat-no" title="statement not covered" >   var _post;</span>
+<span class="cstat-no" title="statement not covered" >   var index = vm.posts.findIndex(<span class="fstat-no" title="function not covered" >function(post) {                 </span></span>
+<span class="cstat-no" title="statement not covered" >     return post.id === _postId </span>
+   }) 
+<span class="cstat-no" title="statement not covered" >   postuser=vm.posts[index].author;/</span>/get the author of the specific post
+<span class="cstat-no" title="statement not covered" >   _post=vm.posts[index].body;/</span>/get the post content so can be displayed in the change arear
+<span class="cstat-no" title="statement not covered" >   if(UserService.username==postuser)//validate whether the user would match the postuser</span>
+   {   
+<span class="cstat-no" title="statement not covered" >     vm.body=_post;</span>
+<span class="cstat-no" title="statement not covered" >     vm.isEdit=false;/</span>/if ture, change area will show
+   }
+&nbsp;
+   else
+   {
+<span class="cstat-no" title="statement not covered" >     vm.isEdit=true;/</span>/if false, change area will close
+<span class="cstat-no" title="statement not covered" >     alert("You can not do this")</span>
+   }
+ }
+//this function is used as update a post when a user has changed the post
+function savePost(){
+    api.updatePost({id:_postId,body:vm.body}).$promise.then(function(result){
+    vm.body='';
+    setTimeout(loadPosts,1000);//to avoid the confliction between bootstrap and angular
+    }
+   )
+ }
+//this function is used as add a new comment
+//@postId is the postid which a comment should comment on     
+function addComment(postId){
+   api.updatePost({id:postId,body:vm.newComment,commentId:-1}).$promise.
+   then(function(result){
+     // use result and change the post in memory
+     // this is idea: vm.posts.find(postId).update(result)
+     //loadPosts();
+     loadPosts();
+     //console.log(result)
+     vm.newComment='';
+   })
+  }
+//this function  is used as to check whether the user has the authority to change a comment
+//@postId: id of a post
+//@commentId :id of a comment
+<span class="fstat-no" title="function not covered" >function updateComment(postId,commentId){</span>
+<span class="cstat-no" title="statement not covered" >    _postId=postId;</span>
+<span class="cstat-no" title="statement not covered" >    _commentId=commentId;</span>
+<span class="cstat-no" title="statement not covered" >    var commentUser;</span>
+<span class="cstat-no" title="statement not covered" >    var _comment;</span>
+<span class="cstat-no" title="statement not covered" >    var index2;</span>
+    //get the index of a pecific post
+<span class="cstat-no" title="statement not covered" >    var index1 = vm.posts.findIndex(<span class="fstat-no" title="function not covered" >function(post) { </span></span>
+<span class="cstat-no" title="statement not covered" >    return post.id === postId </span>
+   
+   }) 
+&nbsp;
+<span class="cstat-no" title="statement not covered" >   for(var i=0;i&lt;vm.posts[index1].comments.length;i++) //to get the commentindex of the specific comment in a specific post</span>
+   {
+<span class="cstat-no" title="statement not covered" >     if(vm.posts[index1].comments[i].commentId==commentId)</span>
+     {  
+<span class="cstat-no" title="statement not covered" >       index2=i;</span>
+     }
+    }
+<span class="cstat-no" title="statement not covered" >    commentUser=vm.posts[index1].comments[index2].author;/</span>/ the author of a specific comment
+<span class="cstat-no" title="statement not covered" >    _comment=vm.posts[index1].comments[index2].body;/</span>/the commentbody of a specific comment so that that can be displayed in the change area
+  
+<span class="cstat-no" title="statement not covered" >    if(UserService.username==commentUser)// validate whether the user can change the comment</span>
+    {   
+<span class="cstat-no" title="statement not covered" >      vm.commentBody=_comment;</span>
+<span class="cstat-no" title="statement not covered" >      vm._isEdit=false;/</span>/the change area will show
+    }
+   else
+    { 
+<span class="cstat-no" title="statement not covered" >      vm._isEdit=true;/</span>/the change area will close
+<span class="cstat-no" title="statement not covered" >      alert("You can not do this")</span>
+    }
+  }
+<span class="fstat-no" title="function not covered" >  function setFile(file)</span>
+        {  <span class="cstat-no" title="statement not covered" >var preview = document.getElementById("post");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >           var file= file.files[0];</span>
+<span class="cstat-no" title="statement not covered" >           var reader  = new FileReader();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          reader.addEventListener("load", <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >          preview.src = reader.result;</span>
+           }, false);
+       
+<span class="cstat-no" title="statement not covered" >         if (file) {</span>
+<span class="cstat-no" title="statement not covered" >          reader.readAsDataURL(file);</span>
+          }
+<span class="cstat-no" title="statement not covered" >          _postImage=file;</span>
+      }
+ function saveComment(){
+    api.updatePost({id:_postId,body:vm.commentBody,commentId:_commentId}).$promise.then(function(result){
+    vm.commentBody='';
+    setTimeout(loadPosts,1000);//use setTimeout so the bootstrap will not conflict with the angular
+&nbsp;
+   }
+&nbsp;
+  )
+ }
+}
+})()</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 24 2016 19:46:54 GMT-0500 (CDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

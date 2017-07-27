@@ -1,0 +1,37 @@
+<div ng-controller="followingsCtrl as vm">
+  <h4>Add Friends</h4>
+      <div class="form-group">
+        <label for="usr"></label>
+        <input type="text" class="form-control" id="usr" placeholder="search friends" ng-model="vm.friend">
+        <br>
+        <button type="button" class="btn btn-primary" ng-click="vm.addNew(vm.friend)">Add</button>
+        </div>
+
+    <div ng-repeat="x in vm.slides">
+        <div class="panel panel-success">
+           <div class="panel-body">
+              <img src="{{x.profile}}" class="img-circle" width="100" height="100">
+              <br>
+              <strong>{{x.user}}</strong>
+              <br>
+              <strong>{{x.status}}</strong>
+              <br>
+              <button type="button" class="btn btn-primary" ng-click="vm.Add(x.user)" id="Add">Add</button>
+           </div>
+        </div>
+      </div>
+  <h4>Friends</h4>
+    <div ng-repeat="x in vm.followings">
+        <div class="panel panel-success">
+           <div class="panel-body" id="following">
+              <img src="{{x.profile}}" class="img-circle" width="100" height="100">
+              <br>
+              <strong>{{x.user}}</strong>
+              <br>
+              <strong>{{x.status}}</strong>
+              <br>
+              <button type="button" class="btn btn-primary" ng-click="vm.deleteFollowing(x.user)" id="delete">Delete</button>
+           </div>
+        </div>
+      </div>
+</div>

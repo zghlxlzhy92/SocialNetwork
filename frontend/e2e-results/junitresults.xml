@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="In class End to End Exercise" timestamp="2016-03-24T19:32:27" hostname="localhost" time="21.037" errors="0" tests="11" skipped="0" disabled="0" failures="0">
+  <testcase classname="In class End to End Exercise" name="should work and have header text" time="0.958" />
+  <testcase classname="In class End to End Exercise" name="should create a new post and verify" time="2.688" />
+  <testcase classname="In class End to End Exercise" name="should update the status and verify" time="2.094" />
+  <testcase classname="In class End to End Exercise" name="count the number of followed users" time="1.683" />
+  <testcase classname="In class End to End Exercise" name="add follower and verify" time="1.619" />
+  <testcase classname="In class End to End Exercise" name="remove follower and verify" time="1.78" />
+  <testcase classname="In class End to End Exercise" name="Search for post and verify" time="2.334" />
+  <testcase classname="In class End to End Exercise" name="it should navigate to the profile and success" time="1.648" />
+  <testcase classname="In class End to End Exercise" name="it should update email and verify" time="1.922" />
+  <testcase classname="In class End to End Exercise" name="it should update zipcode and verify " time="2.089" />
+  <testcase classname="In class End to End Exercise" name="it should update password and verify" time="2.215" />
+ </testsuite>
+</testsuites>

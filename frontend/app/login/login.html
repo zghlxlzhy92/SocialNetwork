@@ -1,0 +1,88 @@
+<div class="container text-center">
+ <div class="jumbotron">
+   <h1>Welcome to join us</h1>      
+    <p>Always waiting for you</p>
+  </div>
+</div>
+<div class="container">    
+  <div class="row">
+  <!--register part -->
+   <div class="col-sm-6"> 
+    <div class="panel panel-success">
+     <div class="panel-heading">Register</div>
+      <div class="panel-body">
+       <form role="form">
+        <div class="form-group">
+        <label for="first">First Name:</label>
+        <input type="text" class="form-control" ng-model='vm.fisrtname' placeholder="First Name">
+        </div>
+      <div class="form-group">
+        <label for="last">Last Name:</label>
+        <input type="text" class="form-control" ng-model='vm.lastname' placeholder="Last name">
+      </div>
+      <div class="form-group">
+       <label for="usr">User Name:</label>
+       <input type="text" class="form-control" ng-model='vm._username' placeholder="username" required>
+      </div>
+       <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" ng-model='vm.email' placeholder="Email" required>
+       </div>
+       <div class="form-group">
+        <label for="zipcode">Zipcode:</label>
+        <input type="zipcode" class="form-control" ng-model='vm.zipcode' placeholder="zipcode" required>
+       </div>
+
+       <div class="form-group">
+        <label for="mobile">Phone number:</label>
+        <input type="tel" class="form-control" ng-model='vm.phone' placeholder="mobile number" pattern="\d\d\d[-]?\d\d\d[-]?\d\d\d\d">
+       </div>
+       <div class="form-group">
+        <label for="birthday">Birthday:</label>
+        <input type="date" class="form-control" ng-model='vm.birthday'>
+       </div>
+       <div class="form-group">
+        <label class="radio-inline">
+        <input type="radio" class="form-control" name="gender" ng-model='vm.gender'> Female
+        </label>
+        <label class="radio-inline">
+        <input type="radio" class="form-control" name="gender" ng-model='vm.gender'> Male
+        </label>
+       </div>
+      <div class="form-group">
+       <label for="pwd">Password:</label>
+       <input type="password" class="form-control" ng-model='vm._password' placeholder="Password" required>
+       </div>
+      <div class="form-group">
+       <label for="rpwd">Re Password:</label>
+       <input type="password" class="form-control" ng-model='vm.rpwd' placeholder="Password" required>
+      </div>
+    </form>
+   </div>
+    <div class="panel-footer"><button type="button" class="btn btn-primary" ng-click='vm.register()'>Register</button></div>
+  </div>
+</div>
+<!--login part -->
+  <div class="col-sm-6">
+    <div class="panel panel-danger">
+      <div class="panel-heading">Log In</div>
+        <div class="panel-body">
+        	<form role="form">
+           <div class="form-group">
+            <label for="usr1">User Name:</label>
+            <input type="text" class="form-control" ng-model='vm.username' placeholder="username">
+           </div>
+           <div class="form-group">
+            <label for="psw1">Password:</label>
+            <input type="password" class="form-control" ng-model='vm.password' placeholder="password">
+           </div>
+          </form>
+         </div>
+        <div class="panel-footer"><button type="button" id="Login"  class="btn btn-primary" ng-click='vm.login()'>Log in</button></div>
+       &nbsp;&nbsp;&nbsp;<a type="button" class="btn btn-primary" href="https://zhybackserverapp.herokuapp.com/auth" >FaceBook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

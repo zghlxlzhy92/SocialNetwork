@@ -1,0 +1,164 @@
+  <div ng-controller="profileCtrl as vm">   
+   <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+     <div class="navbar-header">
+      <a class="navbar-brand">Our space</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a ng-click="vm.logout()" id="Logout">Log out</a></li>
+      <li><a  ng-click="vm.rmain()">Main Page</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a ><span class="glyphicon glyphicon-user"></span>{{vm.username}}</a></li>
+      <li><a ><span class="glyphicon glyphicon-home"></span>Home</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+<div class="container">
+  <div class="row content">
+   <div class="col-sm-6">
+    <div id="type">
+     <h1>Being here</h1>      
+     <p>To update your Information</p>
+     <!--This is the area to show link and unlink using modal -->
+     <div ng-show="vm.isThird">
+       <div ng-hide="vm.isLink">
+        <button type="button" class="btn btn-warning" id="link" data-toggle="modal" data-target="#myModalA">Link Account</button>
+        <div class="modal fade" id="myModalA" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">LogIn</h4>
+              </div>
+              <div class="modal-body">
+               <label for="usr1">User Name:</label>
+               <input type="text" class="form-control" ng-model='linkname' placeholder="username">
+               <br>
+               <label for="psw1">Password:</label>
+               <input type="password" class="form-control" ng-model='linkpassword' placeholder="password">
+
+             </div>
+             <div class="modal-footer">
+              <button type="button" class="btn btn-warning" ng-click="vm.link(linkname, linkpassword)" data-dismiss="modal">Login</button>
+              <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div ng-show="vm.isLink">
+     <button type="button" class="btn btn-warning" id="link" data-toggle="modal" data-target="#myModalB">Unlink Account</button>
+     <div class="modal fade" id="myModalB" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">LogIn</h4>
+          </div>
+          <div class="modal-body">
+           <label for="usr1">User Name:</label>
+           <input type="text" class="form-control" ng-model='unlinkname' placeholder="username">
+           <br>
+           <label for="psw1">Password:</label>
+           <input type="password" class="form-control" ng-model='unlinkpassword' placeholder="password">
+
+         </div>
+         <div class="modal-footer">
+          <button type="button" class="btn btn-warning" ng-click="vm.unlink(unlinkname,unlinkpassword)" data-dismiss="modal">Login</button>
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div ng-hide="vm.isThird">
+ <div ng-hide="vm.isLink">
+  <a type="button" class="btn btn-warning"  href="https://zhybackserverapp.herokuapp.com/auth" >Link Account</a>
+</div>
+<br><br>
+<div ng-show="vm.isLink">
+ <a type="button" class="btn btn-warning" href="https://zhybackserverapp.herokuapp.com/auth" >Unlink Account</a>
+</div>
+
+</div> 
+</div>
+</div>
+<!--place to show user information-->
+<div class="col-sm-6">
+  <img ng-src="{{vm.getImage()}}" class="img-rounded" width="304" height="236" id="myp">
+  <input type="file" name="pic" accept="image/*" onchange="angular.element(this).scope().vm.setFile(this)">
+  <button type="button" class="btn btn-warning" id="upload" ng-click="vm.uploadPicture()">Upload</button>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+   <div class="panel panel-primary">
+    <div class="panel-heading">Current Info</div>
+    <div class="panel-body">
+      <p>
+        Firstname: <span class="curr" >Hongyang</span><br>
+        Lastname: <span class="curr">Zhang</span>   <br>
+        UserName: <span class="curr">HappyAmy</span><br>
+        Email : <span class="curr">{{vm.getEmail()}}</span><br>
+        Zipcode:<span class="curr">{{vm.getZipcode()}}</span><br>
+        Phone number:<span class="curr">123-123-1234</span><br>
+        Birthday:<span class="curr">1/12/1992</span><br>
+        Password:<span class="curr">{{vm.getMessage()}}</span><br>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6">
+  <!--place for update user information-->
+  <div class="panel panel-primary">
+    <div class="panel-heading">Update Info</div>
+    <div class="panel-body">
+      <form role="form" >
+       <div class="form-group">
+         <label for="first">First Name:</label>
+         <input type="text" class="form-control" id="first" placeholder="First Name">
+       </div>
+       <div class="form-group">
+        <label for="last">Last Name:</label>
+        <input type="text" class="form-control" id="last" placeholder="Last name">
+      </div>
+      <div class="form-group">
+        <label for="usr">User Name:</label>
+        <input type="text" class="form-control" id="usr" placeholder="username">
+      </div>
+      <div class="form-group">
+       <label for="email">Email:</label>
+       <input type="text" class="form-control" ng-model="vm.email" placeholder="Email" id="email"> <strong>{{vm.emailMsg}}</strong>
+     </div> 
+     <div class="form-group">
+       <label for="zipcode">Zipcode:</label>
+       <input type="text" class="form-control" ng-model="vm.zipcode" placeholder="zipcode" id="zipcode">{{vm.zipMsg}}
+     </div> 
+     <div class="form-group">
+       <label for="mobile">Phone number:</label>
+       <input type="tel" class="form-control" id="mobile" placeholder="mobile number" pattern="\d\d\d[-]?\d\d\d[-]?\d\d\d\d">
+     </div>
+     <div class="form-group">
+      <label for="birthday">Birthday:</label>
+      <input type="date" class="form-control" id="birthday">
+    </div>
+    <div class="form-group">
+     <label for="pwd">Password:</label>
+     <input type="password" class="form-control" ng-model="vm.password" placeholder="Password" id="pwd">
+   </div>
+   <div class="form-group">
+     <label for="rpwd">Re Password:</label>
+     <input type="password" class="form-control" ng-model="vm.rpassword" placeholder="Password" id="rpwd">
+   </div>
+ </form>
+ <button type="button" class="btn btn-warning" ng-click="vm.update(vm.email,vm.zipcode,vm.password,vm.rpassword)" id="updateP">Update</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>   
+</div>

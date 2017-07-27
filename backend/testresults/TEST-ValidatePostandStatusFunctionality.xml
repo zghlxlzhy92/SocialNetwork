@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Validate Post and Status Functionality" errors="0" tests="3" failures="0" time="0.111" timestamp="2016-03-25T01:18:24">
+  <testcase classname="Validate Post and Status Functionality" name="should add posts with successive post ids, return the post each time and count the number" time="0.059"></testcase>
+  <testcase classname="Validate Post and Status Functionality" name="should return a post with a specified id" time="0.016"></testcase>
+  <testcase classname="Validate Post and Status Functionality" name="should update the status and changed" time="0.031"></testcase>
+</testsuite>
+</testsuites>

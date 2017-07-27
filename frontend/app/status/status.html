@@ -1,0 +1,11 @@
+		 <div ng-controller="statusCtrl as vm">
+	       <img ng-src="{{vm.getImage()}}" class="img-circle" alt="Cinque Terre" width="304" height="236">
+	        <br>
+           <p><span id="os"><strong>{{vm.status}}</strong><a href="#">
+	       <span class="glyphicon glyphicon-star"></span>
+	       </a></span></p>
+	       <br>
+	       <span>
+	       <input type="text" placeholder="new status" ng-model="vm.newStatus">
+	       <button type="button" class="btn btn-info" ng-click="vm.updateStatus()" id="updateStatus">Update</button></span>
+	   </div>

@@ -1,0 +1,29 @@
+/* This is main for design the style of words style in 
+ main.html ,profile.html
+*/
+#os{
+      padding-left: 60px;
+      font-style: italic;
+      font-family: courier;
+      font-size: 15px;
+   }
+#bns{
+	  padding-left: 35px;
+
+    }
+#an,#bg{
+	  padding-left: 50px;
+
+    }
+#type h1{
+      padding-top: 50px;
+      font-style: italic;
+      font-family:times;
+      }
+ #type p
+    {
+        padding-left: 30px;
+        font-style: italic;
+        font-size: 20px;
+        font-family: times;
+    }
